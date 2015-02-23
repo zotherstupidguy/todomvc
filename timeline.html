@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ideas</title>
+<!--
+<%= stylesheet_link_tag    'application', 'timeliner', 'lightSlider', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'timeliner', 'lightSlider', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+-->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/timeliner.css">
+<link rel="stylesheet" href="css/lightSlider.css">
+</head>
+<body>
+
+
+<div class="container">
+  <h1>CoComics</h1>
+  <h2><span class="step1">Resketch</span> <span class="step2">Your</span> <span class="step3">Comics</span></h2>
+
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Listing Ideas</h1>
+
+  <div id="timeline" class="timeline-container">
+
+    <% @ideas.each do |idea| %>
+
+
+    <br class="clear">
+    <div class="timeline-wrapper">
+
+
+
+      <h2 class="timeline-time"><span><%= idea.title %></span></h2>
+      <dl class="timeline-series">
+	<span class="tick tick-before"></span>
+
+	<dt id= <%= idea.bits.to_s %> class="timeline-event"><a><%= idea.bits.to_s %> bit
+	</a></dt>
+	<span class="tick tick-after"></span>
+	<dd class="timeline-event-content" id="<%= idea.bits.to_s %>EX">
+
+	<ul class="vertical">
+	  <li data-thumb= <%= image_tag "/thumb/2.jpg" %>
+	  <div align="center" >
+	    this is some text
+	  </div>
+	  </li>
+	  <li data-thumb="img/thumb/2.jpg">
+	  <div align="center" >
+	    another text
+	  </div>
+	  </li>
+	  <li data-thumb="img/thumb/2.jpg">
+	  <div align="center" >
+	    <iframe width="420" height="315" src="https://www.youtube.com/embed/qOIovsgocFs" frameborder="0" allowfullscreen></iframe>
+	  </div>
+	  </li> 
+	</ul>
+
+	<blockquote>
+	  <p>Plot: This is one ...</p>
+	  <p>And the robo-boogie.</p>
+	  <p>Oh yes, two kinds of dances.</p>
+	</blockquote>
+	<br class="clear">
+	</dd><!-- /.timeline-event-content -->
+
+
+
+      </dl><!-- /.timeline-series -->
+
+
+    </div><!-- /.timeline-wrapper -->
+
+
+
+
+    <% end %>
+
+
+    <br class="clear">
+  </div><!-- /#timeline -->
+
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea', new_idea_path %>
+
+
+
+
+
+
+
+</div><!-- /.container -->
+
+
+<!-- GLOBAL CORE SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/vendor/venobox/venobox.min.js"></script>
+<script type="text/javascript" src="js/timeliner.js"></script>
+
+<script src="js/lightSlider.js"></script>
+</body>
+</html>
+
+
